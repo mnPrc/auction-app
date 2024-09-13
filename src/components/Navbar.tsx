@@ -8,7 +8,7 @@ import {
     NavLinks,
     StyledLink,
     LogoutButton
-} from "../styles/NavbarStyles"
+} from "../styles/navbar.style"
 
 export default function Navbar() {
     const isAuthenticated = useAppSelector(isUserAuthenticated);

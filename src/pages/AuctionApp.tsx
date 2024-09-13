@@ -1,8 +1,12 @@
+import React from "react";
+import ItemsPage from "./item/ItemsPage";
 
-function AuctionApp() {
-    return <div>
-        <h2>Auction App</h2>
-    </div>;
+const AuctionApp: React.FC = () =>{
+    return(
+        <div>
+            <ItemsPage/>
+        </div>
+    );
 }
 
 export default AuctionApp;

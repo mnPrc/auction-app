@@ -13,7 +13,7 @@ import {
     Label,
     Input,
     SubmitButton
-} from "../../styles/FormStyles";
+} from "../../styles/form.styles";
 
 const Login: React.FC = () => {
     const [user, setUser] = useState<LoginCredentials>({

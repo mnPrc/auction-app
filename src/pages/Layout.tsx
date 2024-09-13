@@ -5,6 +5,7 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import GuestRoute from "../components/routing/PrivateRoute";
 import PrivateRoute from "../components/routing/GuestRoute";
+import SingleItemPage from "./item/SingleItemPage";
 
 function Layout() {
     return (
@@ -13,7 +14,7 @@ function Layout() {
             <Routes>
                 <Route
                     path="/"
-                    element={<PrivateRoute element={<AuctionApp />} />}
+                    element={<AuctionApp />} 
                 />
                 <Route
                     path="/login"
@@ -22,6 +23,10 @@ function Layout() {
                 <Route
                     path="/register"
                     element={<GuestRoute element={<Register />} />}
+                />
+                <Route
+                    path="/item/:id"
+                    element={<PrivateRoute element={<SingleItemPage/>}/>}
                 />
             </Routes>
         </Router>

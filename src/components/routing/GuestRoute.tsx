@@ -3,12 +3,10 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import { isUserAuthenticated } from "../../store/auth/selectors";
 import { useAppSelector } from "../../hooks/useDispatchAndSelector";
+import { RouteProps } from "../../types/props.types";
 
-interface PrivateRouteProps {
-    element: JSX.Element;
-}
 
-const PrivateRoute: React.FC<PrivateRouteProps> = ({ element }) => {
+const PrivateRoute: React.FC<RouteProps> = ({ element }) => {
     const isAuthenticated = useAppSelector(isUserAuthenticated);
 
     return isAuthenticated ? element : <Navigate to="/login" />;

@@ -13,7 +13,7 @@ import {
     Label,
     Input,
     SubmitButton
-} from "../../styles/FormStyles";
+} from "../../styles/form.styles";
 
 const Register: React.FC = () => {
     const [user, setUser] = useState<RegisterNewUser>({

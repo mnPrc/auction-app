@@ -1,6 +1,6 @@
 import{
     ErrorContainer,
-} from "../../styles/ErrorStyles";
+} from "../../styles/error.styles";
 
 interface RegisterErrorsProps {
     errors?: string[];

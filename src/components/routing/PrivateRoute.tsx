@@ -3,12 +3,9 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import { isUserAuthenticated } from "../../store/auth/selectors";
 import { useAppSelector } from "../../hooks/useDispatchAndSelector";
+import { RouteProps } from "../../types/props.types";
 
-interface GuestRouteProps {
-    element: JSX.Element;
-}
-
-const GuestRoute: React.FC<GuestRouteProps> = ({ element }) => {
+const GuestRoute: React.FC<RouteProps> = ({ element }) => {
     const isAuthenticated = useAppSelector(isUserAuthenticated);
 
     return !isAuthenticated ? element : <Navigate to="/" />;
