@@ -12,3 +12,22 @@ export interface RouteProps {
     element: JSX.Element;
 }
 
+export interface CreateItemErrorsProps {
+    errors: string[];
+}
+
+export interface RegisterErrorsProps {
+    errors: string[];
+}
+
+export interface LoginErrorsProps {
+    error: string;
+}
+
+export interface BidOnItemProps{
+    error: string;
+}
+
+export interface DisplayBidFormProps {
+    item: Item;
+}

@@ -1,4 +1,5 @@
 export interface CreateNewItem{
+    user_id?: number;
     name: string;
     description: string;
     current_price: number;
@@ -38,6 +39,7 @@ export interface ItemState{
     items: PaginatedItems;
     item: Item;
     createItemErrors: string[];
+    bidOnItemErrors: string;
     page: number;
     search: string;
 }

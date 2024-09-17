@@ -1,12 +1,9 @@
 import{
     ErrorContainer,
 } from "../../styles/error.styles";
+import { RegisterErrorsProps } from "../../types/props.types";
 
-interface RegisterErrorsProps {
-    errors?: string[];
-}
-
-function RegisterErrors({ errors }: RegisterErrorsProps) {
+const RegisterErrors: React.FC<RegisterErrorsProps> = ({errors}) =>  {
     return (
         <ErrorContainer>
 			{errors?.map((error, index) => (

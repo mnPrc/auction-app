@@ -1,9 +1,9 @@
 import{
     ErrorContainer,
 } from "../../styles/error.styles";
-import { LoginErrorsProps } from "../../types/props.types";
+import { BidOnItemProps } from "../../types/props.types";
 
-const LoginErrors: React.FC<LoginErrorsProps> = ({error}) => {
+const BidOnItemErrors: React.FC<BidOnItemProps> = ({ error }) => {
     return (
         <ErrorContainer>
             {error && <p>{error}</p>}
@@ -11,4 +11,4 @@ const LoginErrors: React.FC<LoginErrorsProps> = ({error}) => {
     );
 }
 
-export default LoginErrors;
+export default BidOnItemErrors;

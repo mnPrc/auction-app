@@ -32,6 +32,7 @@ export default function Navbar() {
         <Nav>
             <NavLinks>
                 <StyledLink to="/">Auctions</StyledLink>
+                <StyledLink to="/create-item">Create Item</StyledLink>
                 {!isAuthenticated && <StyledLink to="/register">Register</StyledLink>}
                 {!isAuthenticated && <StyledLink to="/login">Login</StyledLink>}
             </NavLinks>    

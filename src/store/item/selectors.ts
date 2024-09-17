@@ -5,4 +5,5 @@ export const selectItems= (state: RootState) => state.items.items.data;
 export const selectPaginatedItems= (state: RootState) => state.items.items;
 export const selectItem = (state: RootState): Item => state.items.item;
 export const selectCreateItemErrors = (state: RootState): string[] => state.items.createItemErrors;
+export const selectBidOnItemErrors = (state: RootState): string => state.items.bidOnItemErrors;
 export const selectSearchTerm = (state: RootState): string => state.items.search;

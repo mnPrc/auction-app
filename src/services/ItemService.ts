@@ -27,6 +27,16 @@ class ItemService extends HttpService{
         const { data } = await this.client.delete(`/items/${itemId}`);
         return data;
     }
+
+    bidOnItem = async(itemId: number, bidAmount: number) => {
+        const { data } = await this.client.post(`/items/${itemId}/bid`, { bid_amount: bidAmount });
+        return data;
+    }
+
+    buyNowItem = async(itemId: number) => {
+        const { data } = await this.client.post(`/items/${itemId}/buy-now`);
+        return data;
+    }
 }
 
 const itemService = new ItemService();

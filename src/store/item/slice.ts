@@ -13,6 +13,7 @@ const itemsSlice = createSlice({
         },
         item: {} as Item,
         createItemErrors: [] as string[],
+        bidOnItemErrors: "", 
         page: 1,
         search: "",
     } as ItemState,
@@ -22,9 +23,13 @@ const itemsSlice = createSlice({
         },
         getItem(payload, action: PayloadAction<{ id: number}>){
         },
-        createItem(payload, action: PayloadAction<{ newItem: CreateNewItem, meta: {onSuccess:() => void} }>){
+        createItem(payload, action: PayloadAction<{ newItem: CreateNewItem | FormData, meta: {onSuccess:() => void} }>){
         },
         deleteItem(payload, action: PayloadAction<{ id: number, meta: {onSuccess: () => void}}>){
+        },
+        bidOnItem(payload, action: PayloadAction<{id: number, bidAmount: number}>){
+        },
+        buyNowItem(payload, action: PayloadAction<{id: number, meta: {onSuccess: () => void}}>){   
         },
         setItems(state, action: PayloadAction<PaginatedItems>){
             state.items = action.payload;
@@ -40,7 +45,10 @@ const itemsSlice = createSlice({
         },
         setCreateItemErrors(state, action: PayloadAction<string[]>){
             state.createItemErrors = action.payload;
-        }
+        },
+        setBidOnItemErrors(state, action: PayloadAction<string>){
+            state.bidOnItemErrors = action.payload;
+        },
     }
 })
 
@@ -49,11 +57,14 @@ export const {
     getItem, 
     createItem, 
     deleteItem, 
+    bidOnItem,
+    buyNowItem,
     setItems, 
     setItem, 
     setSearchTerm, 
     setCreateItem, 
-    setCreateItemErrors, 
+    setCreateItemErrors,
+    setBidOnItemErrors
 } = itemsSlice.actions;
 
 export default itemsSlice.reducer;

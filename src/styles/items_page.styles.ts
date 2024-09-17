@@ -20,7 +20,7 @@ export const ItemsPageContainer = styled.div`
 
 export const ItemList = styled.div`
     width: 100%;
-    max-width: 75rem;
+    max-width: 100rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     gap: 1.5rem;

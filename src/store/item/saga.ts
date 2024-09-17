@@ -6,7 +6,10 @@ import {
     deleteItem, 
     setItems, 
     setItem, 
-    setCreateItemErrors 
+    setCreateItemErrors, 
+    setBidOnItemErrors,
+    bidOnItem,
+    buyNowItem,
 } from "./slice";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { CreateNewItem, Item, PaginatedItems } from "../../types/item.types";
@@ -57,9 +60,31 @@ function* handleDeleteItem(action: PayloadAction<{id: number, meta: {onSuccess: 
     }
 }
 
+function* handleBidOnItem(action: PayloadAction<{id: number, bidAmount: number}>): Generator {
+    try{
+        yield call(itemService.bidOnItem, action.payload.id, action.payload.bidAmount);
+        const itemWithBid = (yield call(itemService.getItem, action.payload.id)) as Item;
+        yield put(setItem(itemWithBid));
+    }catch(error){
+        const apiError = error as ApiErrorResponse;
+        yield put(setBidOnItemErrors(apiError.response.data.error));
+    }
+}
+
+function* handleBuyNowItem(action: PayloadAction<{id: number, meta: {onSuccess: () => void}}>): Generator{
+    try{
+        const itemBuyNow = (yield call(itemService.buyNowItem, action.payload.id)) as Item;
+        yield put(setItem(itemBuyNow));
+        action.payload.meta.onSuccess();
+    }catch(error){
+        console.error(error);
+    }
+}
 export function* watchItemSagas(){
     yield takeLatest(getAllItems.type, handleGetAllItems);
     yield takeLatest(getItem.type, handleGetItem);
     yield takeLatest(createItem.type, handleCreateItem);
     yield takeLatest(deleteItem.type, handleDeleteItem);
+    yield takeLatest(bidOnItem.type, handleBidOnItem);
+    yield takeLatest(buyNowItem.type, handleBuyNowItem);
 }

@@ -6,6 +6,7 @@ import Register from "./auth/Register";
 import GuestRoute from "../components/routing/PrivateRoute";
 import PrivateRoute from "../components/routing/GuestRoute";
 import SingleItemPage from "./item/SingleItemPage";
+import CreateItemPage from "./item/CreateItemPage";
 
 function Layout() {
     return (
@@ -27,6 +28,10 @@ function Layout() {
                 <Route
                     path="/item/:id"
                     element={<PrivateRoute element={<SingleItemPage/>}/>}
+                />
+                <Route
+                    path="/create-item"
+                    element={<PrivateRoute element={<CreateItemPage/>}/>}
                 />
             </Routes>
         </Router>
